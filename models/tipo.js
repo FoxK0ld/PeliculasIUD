@@ -12,7 +12,7 @@ const TipoSchema = Schema({
     fechaActualizacion : {
         type : Date
     },
-    descripcion : {
+    descripcioon : {
         type : String
     }
 })
