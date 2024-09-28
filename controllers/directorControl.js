@@ -50,10 +50,11 @@ const consultarDirectorPorID = async (req = request, res = response) => {
 const editarDirectorPorID = async (req = request, res = response) => {
     
         try {
-            const { nombre } = req.body
+            const { nombre, estado } = req.body
             const id = req.params.id
             let data = {
-                nombre
+                nombre,
+                estado: estado !== undefined ? estado : undefined,
             }
             data.fechaActualizacion = new Date()
             const director = await Director.findByIdAndUpdate(id, data, {new:true})

@@ -58,12 +58,13 @@ const consultarProductoraPorID = async (req = request, res = response) => {
 const editarProductoraPorID = async (req = request, res = response) => {
 
     try {
-        const {nombre, descripcion, slogan} = req.body
+        const {nombre, descripcion, slogan, estado} = req.body
         const id = req.params.id
         let data = {
             nombre,
             descripcion,
-            slogan
+            slogan,
+            estado: estado !== undefined ? estado : undefined,
         }
         data.fechaActualizacion = new Date()
         const productora = await Productora.findByIdAndUpdate(id, data, {new:true})
