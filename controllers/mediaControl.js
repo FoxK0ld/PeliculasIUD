@@ -68,6 +68,10 @@ const consultarMedias = async (req = request, res = response) => {
     
 try {
     const medias = await Media.find()
+    .populate('genero', 'nombre')
+    .populate('director', 'nombre')
+    .populate('productora', 'nombre')
+    .populate('tipo', 'nombre');
     return res.json(medias)
 } catch (error) {
     console.log(error)
