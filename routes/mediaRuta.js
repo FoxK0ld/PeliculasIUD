@@ -1,4 +1,6 @@
 const { Router } = require('express')
+const { validarJWT } = require('../middleware/validarJWT');
+const { validarRolAdmin} = require('../middleware/validarRolAdmin');
 
 const {
     crearMedia, 
