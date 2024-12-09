@@ -9,14 +9,14 @@ const {
 const router = Router()
 
 // endpoint crear
-router.post('/', crearMedia)
+router.post('/', [validarJWT, validarRolAdmin], crearMedia)
 
 // endpoint consultar todos
 router.get('/', consultarMedias)
 
 // endpoint consultar por ID
-router.get('/:id', consultarMediaPorID)
+router.get('/:id', [validarJWT, validarRolAdmin], consultarMediaPorID)
 
-router.put('/:id', editarMediaPorID)
+router.put('/:id', [validarJWT, validarRolAdmin], editarMediaPorID)
 
 module.exports = router

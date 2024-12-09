@@ -9,14 +9,14 @@ const {
 const router = Router()
 
 // endpoint crear
-router.post('/', crearProductora)
+router.post('/',[validarJWT, validarRolAdmin], crearProductora)
 
 // endpoint consultar todos
 router.get('/', consultarProductoras)
 
 // endpoint consultar por ID
-router.get('/:id', consultarProductoraPorID)
+router.get('/:id', [validarJWT, validarRolAdmin], consultarProductoraPorID)
 
-router.put('/:id', editarProductoraPorID)
+router.put('/:id', [validarJWT, validarRolAdmin], editarProductoraPorID)
 
 module.exports = router
